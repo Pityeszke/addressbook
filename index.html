@@ -1,13 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Addressbook</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <script src="script.js"></script>
+
+<h1>Címjegyzék</h1>
+
+<section>
+  <h2>Új névjegy</h2>
+  <form id="contactForm">
+    <input placeholder="Vezetéknév" id="lastName" required>
+    <input placeholder="Keresztnév" id="firstName" required>
+    <input placeholder="Mobil" id="mobile">
+    <input placeholder="Otthoni" id="home">
+    <input placeholder="Email" id="email">
+    <input placeholder="Lakcím" id="address">
+    <input type="date" id="birth">
+    <textarea placeholder="Megjegyzés" id="note"></textarea>
+    <div id="groupCheckboxes"></div>
+    <button>Mentés</button>
+  </form>
+</section>
+
+<section>
+  <h2>Csoportok</h2>
+  <input id="groupName" placeholder="Csoport neve">
+  <button onclick="addGroup()">Hozzáadás</button>
+  <ul id="groupList"></ul>
+</section>
+
+<section>
+  <h2>Névjegyek</h2>
+  <select id="filterGroup" onchange="renderContacts()">
+    <option value="">Összes</option>
+  </select>
+  <div id="contacts"></div>
+</section>
+
+<script src="script.js"></script>
 </body>
 </html>
