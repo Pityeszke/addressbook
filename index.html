@@ -1,35 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Addressbook</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="Névjegy">
-        <label for="vezetéknév">Vezetéknév:</label>
-        <input type="text" id="vezetéknév" name="vezetéknév" placeholder="Vezetéknév">
-        <label for="keresztnév">Keresztnév:</label>
-        <input type="text" id="keresztnév" name="keresztnév" placeholder="Keresztnév">
-        <label for="otthoni">Otthoni Telefonszám:</label>
-        <input type="number" name="" id="otthoni" placeholder="Otthoni Telefonszám">
-        <label for="mobil">Mobil Telefonszám:</label>
-        <input type="number" name="" id="mobil" placeholder="Mobil Telefonszám">
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email" placeholder="Email">
-        <label for="lakcím">Lakcím:</label>
-        <input type="text" id="lakcím" name="lakcím" placeholder="Lakcím">
-        <label for="születési_dátum">Születési dátum:</label>
-        <input type="date" id="születési_dátum" name="születési_dátum">
-        <label for="megjegyzés">Megjegyzés:</label>
-        <textarea id="megjegyzés" name="megjegyzés" placeholder="Megjegyzés"></textarea>
-        <label for="csoport">Csoport:</label>
-        <input type="text" id="csoportneve" name="csoportneve" placeholder="Csoport Neve">
-        <label for="csoportleírás">Csoport Leírás:</label>
-        <input type="text" id="csoportleírás" name="csoportleírás" placeholder="Csoport Leírás">
-        <button id="gomb">Küldés</button>
-    </div>
-    <script src="script.js"></script>
+
+<h1>Címjegyzék</h1>
+
+<section>
+  <h2>Új névjegy</h2>
+  <form id="contactForm">
+    <input placeholder="Vezetéknév" id="lastName" required>
+    <input placeholder="Keresztnév" id="firstName" required>
+    <input placeholder="Mobil" id="mobile">
+    <input placeholder="Otthoni" id="home">
+    <input placeholder="Email" id="email">
+    <input placeholder="Lakcím" id="address">
+    <input type="date" id="birth">
+    <textarea placeholder="Megjegyzés" id="note"></textarea>
+    <div id="groupCheckboxes"></div>
+    <button>Mentés</button>
+  </form>
+</section>
+
+<section>
+  <h2>Csoportok</h2>
+  <input id="groupName" placeholder="Csoport neve">
+  <button onclick="addGroup()">Hozzáadás</button>
+  <ul id="groupList"></ul>
+</section>
+
+<section>
+  <h2>Névjegyek</h2>
+  <select id="filterGroup" onchange="renderContacts()">
+    <option value="">Összes</option>
+  </select>
+  <div id="contacts"></div>
+</section>
+
+<script src="script.js"></script>
 </body>
 </html>
